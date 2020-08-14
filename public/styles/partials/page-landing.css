@@ -1,0 +1,138 @@
+/*Partials> partes do css */
+
+
+
+#page-landing {
+    background-color: var(--color-primary);
+}
+
+#page-landing #container {
+    color: var(--color-text-in-primary);
+}
+
+.logo-container img{
+ height:10rem;
+}
+
+.logo-container {
+    text-align: center; /*Esse alinhamento ao centro só vai acontecer quando visualizar a aplicação em dispositivos mobile */
+    margin-bottom:3.2rem;
+}
+
+.logo-container h2 {
+    font-weight: 500;
+    font-size: 3.6rem;
+    line-height: 4.6rem;
+    margin-top:0.8rem;
+}
+
+.hero-image{  /* 100% de 90vw é 90vw, e 100% de 700px, é 700px, logo, ele vai ocupar todo o espaço reservado para ele, ou seja, ele vai dar um jeito de se encaixar no container mantendo a qualidade do design */
+    width:100%;
+}
+
+.buttons-container {
+    display:flex; /*Mesmo que os botões estejam um do lado do outro, é necessário usar o display porque precisamos utilizar o justify content para alinhar os botões ao centro*/
+    justify-content: center;
+    margin:3.2rem 0;
+}
+
+.buttons-container a {
+    width:30rem;
+    height:10.4rem;
+    
+    border-radius: 0.8rem;
+    margin-right: 1.6rem;
+    
+    font:700 2.4rem Archivo;
+    
+    display:flex; /*Esse display foi necessário para deixar os links Estudar e Dar aulas alinhados aos ícones */
+    align-items: center;
+    justify-content: center;
+    
+    text-decoration: none;
+    transition: background 0.2;
+
+    color: var(--color-button-text);
+}
+
+.buttons-container a img{
+    width:4rem;
+    margin-right:2.4rem; /* Separa a imagem do texto no botão */
+}
+
+.buttons-container a.study {
+    background: var(--color-primary-lighter);
+}
+
+.buttons-container a.study:hover {
+    background: var(--color-primary-light)
+}
+
+.buttons-container a.give-classes {
+    background: var(--color-secondary);
+    margin-right: 0; /*porque diferencia no alinhamento  central, já que colocamos um margin-right de 1.6 na linha 46*/
+}
+
+.buttons-container a.give-classes:hover {
+    background: var(--color-secondary-dark);
+}
+
+.total-connections {  /* Serve para alinhar o texto de total de conexões ao centro, bem como, alinhar o coração roxo ao texto. */
+    font-size:1.2rem;
+    display:flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+.total-connections img {
+    margin-left: 0.8rem;
+}
+@media(max-width:1100px){ /* Só se ele for menor que 700, no  caso para mobile */
+    :root{
+        font-size:40%;
+    }
+
+    .hero-image {
+        height:45rem; 
+    }
+}
+
+@media(min-width: 1100px) {
+    #page-landing #container{
+        max-width: 1100px;
+        display:grid;
+        grid-template-columns: 2fr 1fr 2fr;
+        grid-template-rows:350px 1fr; /* Espaçamento entre a linha 1 e linha 2 no grid */
+        grid-template-areas: 
+        "proffy image image"
+        "button button texting";
+        column-gap:87px; /* Espaçamento entre as frações */
+        row-gap:86px; /* Espaçamento entre as frações */
+        
+    }
+
+    .logo-container{
+        grid-area: proffy;
+        text-align: initial;
+        align-self: center; /* O align self não deixa o conteúdo escapar do grid dele, por isso o logo se encaixa perfeito */
+        margin:0;
+    }
+    .logo-container img {
+        height:127px; 
+    }
+
+    .hero-image{
+        grid-area:image;
+        height:350px;
+    }
+    .buttons-container{
+        grid-area:button;
+        justify-content: flex-start;  /* Esse justify content vai sobrescrever aquele justify content: center do mobile, linha 37. Logo, no inicio do conteúdo flex vai ser bem pra esquerda */
+        margin:0;
+    }
+    .total-connections{
+        grid-area:texting;
+        justify-self: end;
+        font-size: 1.2rem;
+    }
+}

@@ -1,0 +1,82 @@
+/* Retiramos essa parte do page-study.css (linha 3 até 49) porque, tanto a page study quanto page give classes tem o header igual, logo, importamos o header.css em study.html para continuar pegando esse css lá e na page give classes também, evitando repetir códigos */
+
+.page-header{
+    background-color: var(--color-primary);
+    display: flex; 
+    flex-direction: column; /* Deixa todo o conteúdo em baixo um do outro, para poder modificar os conteúdos do header */ 
+}
+
+.page-header .top-bar-container{  /*A classe top-bar-container existe para agrupar os dois primeiros elementos: o ícone back e o logo pequeno */
+    width: 90%;
+    margin: 0 auto;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Esse space between deixa a o ícone back na esquerda e o logo pequeno na direita (Espaço entre os elementos)
+     */ 
+    
+    padding: 1.6rem 0;
+}
+
+.page-header .top-bar-container a{
+    height: 3.2rem;
+    transition: opacity 0.2;
+}
+
+.page-header .top-bar-container a:hover{
+    opacity: 0.6;
+}
+
+.page-header .top-bar-container > img {  /* Pega só a imagem de primeiro nível, no caso a flecha, para aumentá-la */
+    height: 1.6rem;
+
+}
+
+.page-header .header-content {
+    width: 90%;
+    margin: 3.2rem auto;
+
+    position: relative;
+}
+
+.page-header .header-content strong {
+    font:700 3.6rem Archivo;
+    line-height: 4.2rem;
+    color: var(--color-title-in-primary);
+
+}
+
+.page-header .header-content p {
+    max-width: 30rem;  /* Para dar a quebra de linha no texto p */
+    font-size: 1.6rem;
+    line-height:  2.6rem;
+    color: var(--color-text-in-primary);
+    margin-top: 2.4rem;
+}
+
+@media(min-width:700px){
+
+    .page-header {
+        height: 340px;
+    }
+
+    .page-header .top-bar-container {
+        max-width: 1100px;;
+    }
+    
+    .page-header .header-content {
+        max-width: 740px;
+
+        margin: 0 auto;
+
+        flex: 1 1;  /* "Estica" o conteúdo */
+        padding-bottom: 48px;
+        display: flex ;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .page-header .header-content strong {
+        max-width: 350px;  /* Para não deixar toda a frase em uma linha e dar uma "quebra" */
+    }
+}
